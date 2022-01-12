@@ -29,6 +29,7 @@ namespace Calculator
 
         }
 
+        //Function for calculating mathematical operations.
         private void calculate()
         {
             switch (typeOper) 
@@ -53,6 +54,7 @@ namespace Calculator
             }
         }
 
+        //Function for recieving the data of the pressed key(numbers)
         private void num_button_Click(object sender, EventArgs e)
         {
             int ClickValue;
@@ -61,16 +63,17 @@ namespace Calculator
             textBox1.Text = textBox1.Text + Convert.ToString(ClickValue);
 
             label1.Text = label1.Text + Convert.ToString(ClickValue);
-
             //isFocused = textBox1.Focus();
         }
 
+        //Function to add decimal separator
         private void decimal_button_Click(object sender, EventArgs e)
         {
             textBox1.Text = textBox1.Text + ",";
             label1.Text = label1.Text + ",";
         }
 
+        //Function for determing the type of mathematical operation
         private void operation_button_Click(object sender, EventArgs e)
         {
             firstValue = float.Parse(textBox1.Text);
@@ -96,11 +99,11 @@ namespace Calculator
                     label1.Text = firstValue.ToString() + "/";
                     break;
             }
-
             //isFocused = textBox1.Focus();
             sign = true;
         }
 
+        //Function for solving a mathematical operation
         private void button_equals_Click(object sender, EventArgs e)
         {
             secondValue = float.Parse(textBox1.Text);
@@ -108,12 +111,14 @@ namespace Calculator
             calculate();
         }
 
+        //Function to clear all data
         private void clear_button_Click(object sender, EventArgs e)
         {
             textBox1.Text = "";
             label1.Text = "";
         }
 
+        //Function to delete the last sign
         private void delete_button_Click(object sender, EventArgs e)
         {
             int nLength = textBox1.Text.Length;
@@ -123,6 +128,7 @@ namespace Calculator
             label1.Text = label1.Text.Remove(nLengthLabel - 1);
         }
 
+        //Function for changing the sign of a number
         private void sign_button_Click(object sender, EventArgs e)
         {
             if (sign == true)
